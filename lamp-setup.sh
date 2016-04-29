@@ -17,9 +17,7 @@ then
     sudo service apache2 restart;
     sudo cd /var/www/;
     sudo mkdir /var/www/vhosts;
-    sudo chmod 777 -R /var/www/vhosts/;
-    sudo git clone -b develop https://'3king:Ip00p00!'@bitbucket.org/infascination/avhc.git;
-    sudo git clone -b auto https://'3king:Ip00p00!'@bitbucket.org/infascination/wp-setup.git;
+    sudo chmod 0755 -R /var/www;
 
 elif [ "`lsb_release -is`" == "CentOS" ] || [ "`lsb_release -is`" == "RedHat" ]
 then
@@ -27,7 +25,7 @@ then
     sudo yum -y install epel-release phpmyadmin rpm-build redhat-rpm-config;
     sudo yum -y install mysql-community-release-el7-5.noarch.rpm proj;
     sudo yum -y install tinyxml libzip mysql-workbench-community;
-    sudo chmod 777 -R /var/www/;
+    sudo chmod 0755 -R /var/www/;
     sudo printf "<?php\nphpinfo();\n?>" > /var/www/html/info.php;
     sudo service mysqld restart;
     sudo service httpd restart;
